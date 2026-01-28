@@ -1,7 +1,10 @@
 "use client";
 import { LockIcon, LucideIcon } from "lucide-react";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import React, { useState } from "react";
+import { useAppDispatch, useAppSelector } from "../../redux";
+import Link from "next/link";
 
 const Sidebar = () => {
   const [showProjects, setShowProjects] = useState(true);
@@ -46,7 +49,24 @@ href,
   label,
   isCollapsed
 }:SidebarLinkProps) => {
+const pathname = usePathname();
+const isActive = pathname === href|| (pathname === "/" && href === "/dashboard");
+const screenWidth = window.innerWidth;
 
+  const dispatch = useAppDispatch();
+  const isSidebarCollapsed = useAppSelector((state)=> state.global.isSidebarCollapsed);
+  const isDarkMode = useAppSelector((state) => state.global.isDarkMode);
+
+  return (
+      <Link href={href} className="w-full">
+        <div className={`relative flex cursor-pointer items-center gap-3 transition-colors hover:bg-gray-100 dark:bg-black dark:hover:bg-gray-700 ${isActive ? "bg-gray-100 text-white dark:bg-gray-600" : ""}`}>
+          <Icon className="h-5 w-5" />
+          {!isSidebarCollapsed && <span>{label}</span>}
+        </div>
+      </Link>
+  )
 }
+
+
 
 export default Sidebar;
