@@ -7,7 +7,7 @@ import {
   Provider,
 } from "react-redux";
 import globalReducer from "@/src/state";
-import { api } from "@/state/api";
+import { api } from "@/src/state/api";
 import { setupListeners } from "@reduxjs/toolkit/query";
 
 import {
@@ -80,12 +80,14 @@ export default function StoreProvider({
 }: {
   children: React.ReactNode;
 }) {
-  const storeRef = useRef<AppStore>();
-  if (!storeRef.current) {
-    storeRef.current = makeStore();
-    setupListeners(storeRef.current.dispatch);
-  }
-  const persistor = persistStore(storeRef.current);
+    
+ const storeRef = useRef<AppStore | null>(null);
+
+if (!storeRef.current) {
+  storeRef.current = makeStore();
+  setupListeners(storeRef.current.dispatch);
+}
+const persistor = persistStore(storeRef.current);
 
   return (
     <Provider store={storeRef.current}>
