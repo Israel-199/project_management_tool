@@ -1,5 +1,5 @@
 "use client";
-import { LockIcon } from "lucide-react";
+import { LockIcon, LucideIcon } from "lucide-react";
 import Image from "next/image";
 import React, { useState } from "react";
 
@@ -33,5 +33,20 @@ const Sidebar = () => {
     </div>
   );
 };
+
+interface SidebarLinkProps {
+  href: string;
+  icon: LucideIcon;
+  label: string;
+  isCollapsed: boolean;
+}
+const SidebarLink = ({
+href,
+  icon: Icon,
+  label,
+  isCollapsed
+}:SidebarLinkProps) => {
+
+}
 
 export default Sidebar;
