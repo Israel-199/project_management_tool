@@ -24,8 +24,8 @@ function Navbar() {
         </div>
       </div>
       <div className="flex items-center">
-        <button onClick={()=> dispatch(setIsDarkMode(!isDarkMode))} className={isDarkMode ? `rounded p-2 dark:hover:bg-gray-700` : `rounded p-2 hover:bg-gray-100`}>
-          
+        <button onClick={()=> dispatch(setIsDarkMode(!isDarkMode))} className={isDarkMode ? `h-min w-min rounded p-2 dark:hover:bg-gray-700` : `h-min w-min rounded p-2 hover:bg-gray-100`}>
+
           </button>
         <Link
           href="/settings"
