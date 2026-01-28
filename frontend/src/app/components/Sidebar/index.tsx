@@ -44,29 +44,32 @@ interface SidebarLinkProps {
   isCollapsed: boolean;
 }
 const SidebarLink = ({
-href,
+  href,
   icon: Icon,
   label,
-  isCollapsed
-}:SidebarLinkProps) => {
-const pathname = usePathname();
-const isActive = pathname === href|| (pathname === "/" && href === "/dashboard");
-const screenWidth = window.innerWidth;
+  isCollapsed,
+}: SidebarLinkProps) => {
+  const pathname = usePathname();
+  const isActive =
+    pathname === href || (pathname === "/" && href === "/dashboard");
+  const screenWidth = window.innerWidth;
 
   const dispatch = useAppDispatch();
-  const isSidebarCollapsed = useAppSelector((state)=> state.global.isSidebarCollapsed);
+  const isSidebarCollapsed = useAppSelector(
+    (state) => state.global.isSidebarCollapsed,
+  );
   const isDarkMode = useAppSelector((state) => state.global.isDarkMode);
 
   return (
-      <Link href={href} className="w-full">
-        <div className={`relative flex cursor-pointer items-center gap-3 transition-colors hover:bg-gray-100 dark:bg-black dark:hover:bg-gray-700 ${isActive ? "bg-gray-100 text-white dark:bg-gray-600" : ""}`}>
-          <Icon className="h-5 w-5" />
-          {!isSidebarCollapsed && <span>{label}</span>}
-        </div>
-      </Link>
-  )
-}
-
-
+    <Link href={href} className="w-full">
+      <div
+        className={`relative flex cursor-pointer items-center gap-3 transition-colors hover:bg-gray-100 dark:bg-black dark:hover:bg-gray-700 ${isActive ? "bg-gray-100 text-white dark:bg-gray-600" : ""}`}
+      >
+        <Icon className="h-5 w-5" />
+        {!isSidebarCollapsed && <span>{label}</span>}
+      </div>
+    </Link>
+  );
+};
 
 export default Sidebar;
