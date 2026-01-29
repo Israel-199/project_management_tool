@@ -1,5 +1,5 @@
-import Modal from "@/components/Modal";
-import { Priority, Status, useCreateTaskMutation } from "@/state/api";
+import Modal from "@/src/components/Modal";
+import { Priority, Status, useCreateTaskMutation } from "@/src/state/api";
 import React, { useState } from "react";
 import { formatISO } from "date-fns";
 
