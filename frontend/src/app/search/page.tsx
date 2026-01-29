@@ -1,7 +1,7 @@
 "use client";
 
-import Header from "@/components/Header";
-import ProjectCard from "@/components/ProjectCard";
+import Header from "@/src/components/Header";
+import ProjectCard from "@/src/components/ProjectCard";
 import TaskCard from "@/components/TaskCard";
 import UserCard from "@/components/UserCard";
 import { useSearchQuery } from "@/state/api";
