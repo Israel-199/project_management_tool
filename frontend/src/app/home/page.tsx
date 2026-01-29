@@ -6,11 +6,11 @@ import {
   Task,
   useGetProjectsQuery,
   useGetTasksQuery,
-} from "@/state/api";
+} from "@/src/state/api";
 import React from "react";
 import { useAppSelector } from "../redux";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
-import Header from "@/components/Header";
+import Header from "@/src/components/Header";
 import {
   Bar,
   BarChart,
