@@ -2,7 +2,7 @@
 import { useGetUsersQuery } from "@/src/state/api";
 import React from "react";
 import { useAppSelector } from "../redux";
-import Header from "@/components/Header";
+import Header from "@/src/components/Header";
 import {
   DataGrid,
   GridColDef,
