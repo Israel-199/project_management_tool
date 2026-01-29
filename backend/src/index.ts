@@ -9,7 +9,6 @@ import projectRoutes from "./routes/projectRoutes";
 import taskRoutes from "./routes/taskRoutes";
 import searchRoutes from "./routes/searchRoutes";
 
-
 dotenv.config();
 const app = express();
 app.use(express.json());
