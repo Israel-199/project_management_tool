@@ -11,7 +11,7 @@ import {
   GridToolbarFilterButton,
 } from "@mui/x-data-grid";
 import Image from "next/image";
-import { dataGridClassNames, dataGridSxStyles } from "@/lib/utils";
+import { dataGridClassNames, dataGridSxStyles } from "@/src/lib/utils";
 
 const CustomToolbar = () => (
   <GridToolbarContainer className="toolbar flex gap-2">
