@@ -3,6 +3,7 @@ import { Menu, Moon, Search, Settings, Sun, User } from "lucide-react";
 import Link from "next/link";
 import { useAppDispatch, useAppSelector } from "@/src/app/redux";
 import { setIsDarkMode, setIsSidebarCollapsed } from "@/src/state";
+import { useGetAuthUserQuery } from "@/src/state/api";
 import { signOut } from "aws-amplify/auth";
 import Image from "next/image";
 
