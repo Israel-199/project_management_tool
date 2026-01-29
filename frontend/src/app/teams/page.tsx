@@ -1,5 +1,5 @@
 "use client";
-import { useGetTeamsQuery } from "@/state/api";
+import { useGetTeamsQuery } from "@/src/state/api";
 import React from "react";
 import { useAppSelector } from "../redux";
 import Header from "@/components/Header";
