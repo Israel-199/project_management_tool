@@ -6,19 +6,17 @@ import Sidebar from "@/src/components/Sidebar";
 import AuthProvider from "./authProvider";
 import StoreProvider, { useAppSelector } from "./redux";
 
-const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
+const DashboardContent = ({ children }: { children: React.ReactNode }) => {
   const isSidebarCollapsed = useAppSelector(
-    (state) => state.global.isSidebarCollapsed,
+    (state) => state.global.isSidebarCollapsed
   );
-  const isDarkMode = useAppSelector((state) => state.global.isDarkMode);
+  const isDarkMode = useAppSelector(
+    (state) => state.global.isDarkMode
+  );
 
   useEffect(() => {
-    if (isDarkMode) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  });
+    document.documentElement.classList.toggle("dark", isDarkMode);
+  }, [isDarkMode]);
 
   return (
     <div className="flex min-h-screen w-full bg-gray-50 text-gray-900">
@@ -35,14 +33,16 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-const DashboardWrapper = ({ children }: { children: React.ReactNode }) => {
+export default function DashboardWrapper({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <StoreProvider>
       <AuthProvider>
-        <DashboardLayout>{children}</DashboardLayout>
+        <DashboardContent>{children}</DashboardContent>
       </AuthProvider>
     </StoreProvider>
   );
-};
-
-export default DashboardWrapper;
+}
