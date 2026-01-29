@@ -1,13 +1,19 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-export interface intialStateTypes {
-  isSidebarCollapsed?: boolean;
-  isDarkMode?: boolean;
+export interface InitialStateTypes {
+  isSidebarCollapsed: boolean;
+  isDarkMode: boolean;
 }
 
-const initialState: intialStateTypes = {
+// ✅ Safe read (works with Next.js SSR)
+const getInitialDarkMode = () => {
+  if (typeof window === "undefined") return false;
+  return localStorage.getItem("isDarkMode") === "true";
+};
+
+const initialState: InitialStateTypes = {
   isSidebarCollapsed: false,
-  isDarkMode: false,
+  isDarkMode: getInitialDarkMode(),
 };
 
 export const globalSlice = createSlice({
@@ -17,12 +23,19 @@ export const globalSlice = createSlice({
     setIsSidebarCollapsed: (state, action: PayloadAction<boolean>) => {
       state.isSidebarCollapsed = action.payload;
     },
+
     setIsDarkMode: (state, action: PayloadAction<boolean>) => {
       state.isDarkMode = action.payload;
+
+      // ✅ Persist immediately
+      if (typeof window !== "undefined") {
+        localStorage.setItem("isDarkMode", String(action.payload));
+      }
     },
   },
 });
 
-export const { setIsSidebarCollapsed, setIsDarkMode } = globalSlice.actions;
+export const { setIsSidebarCollapsed, setIsDarkMode } =
+  globalSlice.actions;
 
 export default globalSlice.reducer;

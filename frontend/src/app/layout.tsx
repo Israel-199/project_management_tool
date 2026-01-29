@@ -12,9 +12,28 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{ children: React.ReactNode }>) {
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        {/* ✅ Runs BEFORE React, BEFORE paint */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function () {
+                try {
+                  const isDark = localStorage.getItem("isDarkMode") === "true";
+                  if (isDark) {
+                    document.documentElement.classList.add("dark");
+                  }
+                } catch (_) {}
+              })();
+            `,
+          }}
+        />
+      </head>
       <body className={inter.className}>
         <DashboardWrapper>{children}</DashboardWrapper>
       </body>
