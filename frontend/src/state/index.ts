@@ -9,7 +9,6 @@ const initialState: initialStateTypes = {
   isSidebarCollapsed: false,
   isDarkMode: false,
 };
-
 export const globalSlice = createSlice({
   name: "global",
   initialState,
