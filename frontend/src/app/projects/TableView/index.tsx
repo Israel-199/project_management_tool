@@ -64,7 +64,6 @@ const columns: GridColDef[] = [
     renderCell: (params) => params.value?.assignee || "Unassigned",
   },
 ];
-
 const TableView = ({ id, setIsModalNewTaskOpen }: Props) => {
   const isDarkMode = useAppSelector((state) => state.global.isDarkMode);
   const {
