@@ -1,5 +1,4 @@
 "use client";
-
 import { useAppDispatch, useAppSelector } from "@/src/app/redux";
 import { setIsSidebarCollapsed } from "@/src/state";
 import { useGetAuthUserQuery, useGetProjectsQuery } from "@/src/state/api";
