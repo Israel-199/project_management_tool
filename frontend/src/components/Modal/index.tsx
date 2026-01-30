@@ -9,7 +9,6 @@ type Props = {
   onClose: () => void;
   name: string;
 };
-
 const Modal = ({ children, isOpen, onClose, name }: Props) => {
   if (!isOpen) return null;
 
