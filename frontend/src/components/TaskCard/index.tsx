@@ -6,7 +6,6 @@ import React from "react";
 type Props = {
   task: Task;
 };
-
 const TaskCard = ({ task }: Props) => {
   return (
     <div className="mb-3 rounded bg-white p-4 shadow dark:bg-dark-secondary dark:text-white">
