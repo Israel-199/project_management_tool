@@ -11,7 +11,6 @@ import ModalNewTask from "@/src/components/ModalNewTask";
 type Props = {
   params: { id: string };
 };
-
 const Project = ({ params }: Props) => {
   const { id } = params;
   const [activeTab, setActiveTab] = useState("Board");
