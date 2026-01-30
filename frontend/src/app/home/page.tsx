@@ -25,7 +25,6 @@ import {
   YAxis,
 } from "recharts";
 import { dataGridClassNames, dataGridSxStyles } from "@/src/lib/utils";
-
 const taskColumns: GridColDef[] = [
   { field: "title", headerName: "Title", width: 200 },
   { field: "status", headerName: "Status", width: 150 },
