@@ -17,5 +17,4 @@ const Header = ({ name, buttonComponent, isSmallText = false }: Props) => {
     </div>
   );
 };
-
 export default Header;
