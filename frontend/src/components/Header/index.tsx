@@ -5,7 +5,6 @@ type Props = {
   buttonComponent?: any;
   isSmallText?: boolean;
 };
-
 const Header = ({ name, buttonComponent, isSmallText = false }: Props) => {
   return (
     <div className="mb-5 flex w-full items-center justify-between">
