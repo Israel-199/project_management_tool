@@ -7,7 +7,6 @@ type Props = {
   id: string;
   setIsModalNewTaskOpen: (isOpen: boolean) => void;
 };
-
 const ListView = ({ id, setIsModalNewTaskOpen }: Props) => {
   const {
     data: tasks,
