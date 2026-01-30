@@ -46,8 +46,6 @@ const Navbar = () => {
           />
         </div>
       </div>
-
-      {/* Icons */}
       <div className="flex items-center">
         <button
           onClick={() => dispatch(setIsDarkMode(!isDarkMode))}
