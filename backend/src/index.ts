@@ -20,7 +20,6 @@ app.use(morgan("common"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
-
 app.get("/", (req, res) => {
   res.send("This is home route");
 });
