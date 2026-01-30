@@ -2,7 +2,6 @@ import { Request, Response } from "express";
 import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
-
 export const search = async (req: Request, res: Response): Promise<void> => {
   const { query } = req.query;
   try {
