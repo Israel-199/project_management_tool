@@ -45,7 +45,6 @@ const BoardView = ({ id, setIsModalNewTaskOpen }: BoardProps) => {
     </DndProvider>
   );
 };
-
 type TaskColumnProps = {
   status: string;
   tasks: TaskType[];
